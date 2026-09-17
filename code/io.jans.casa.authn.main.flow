@@ -6,7 +6,7 @@ policies = inutil.policies
 methods = inutil.methods
 obj = { captureLocation: inutil.needsCaptureLocation }
 inutil = null
-reinutil = Call io.jans.casa.authn.UserAuthnUtil#new policies
+reinutil = Call io.jans.casa.authn.UserAuthnUtil#new policies conf.ad_domains
 Repeat 3 times max
      userData = RRF "main.ftlh" obj
      Call reinutil validate userData.username userData.password
@@ -19,12 +19,6 @@ uid = reinutil.uid
 // user has 2FA turned off?
 When reinutil.user2FAOn is false
      Finish uid
-// ── IP-based 2FA bypass ─────────────────────────────────────
-ipTrusted = Call io.jans.casa.authn.IpChecker#isTrusted conf.trusted_networks uid
-When ipTrusted is true
-     Log "@info 2FA omitido: IP del cliente en red confiable para usuario %" uid
-     Finish uid
-// ─────────────────────────────────────────────────────────────
 reinutil.jsonLocation = userData.location
 reinutil.jsonDevice = userData.device
 prompt2fa = Call reinutil prompt2FA 

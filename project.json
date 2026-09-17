@@ -99,7 +99,8 @@
                 "user_attr": "mail",
                 "connect_timeout": 5000
             }
-        }
+        },
+        "io.jans.casa.authn.main.ad.fundacionrenal": {}
     },
     "name": "casa"
 }

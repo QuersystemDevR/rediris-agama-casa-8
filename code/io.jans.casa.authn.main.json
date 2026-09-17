@@ -22,7 +22,8 @@
 					"exceptionVariableField": "",
 					"callType": "Create an instance",
 					"arguments": [
-						"policies"
+						"policies",
+						"conf.ad_domains"
 					],
 					"nodeIcon": "material-symbols:code",
 					"nodeColor": "",
@@ -38,7 +39,7 @@
 				"width": 170,
 				"height": 124
 			},
-			"selected": false,
+			"selected": true,
 			"dragging": false
 		},
 		{
@@ -1406,7 +1407,7 @@
 				"width": 170,
 				"height": 124
 			},
-			"selected": true,
+			"selected": false,
 			"dragging": false
 		}
 	],
@@ -2077,8 +2078,8 @@
 		}
 	],
 	"viewport": {
-		"x": -441.3333435058594,
-		"y": 292.5,
-		"zoom": 0.5
+		"x": 257,
+		"y": 340,
+		"zoom": 1
 	}
 }

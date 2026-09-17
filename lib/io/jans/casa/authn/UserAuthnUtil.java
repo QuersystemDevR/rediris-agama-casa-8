@@ -49,12 +49,15 @@ public class UserAuthnUtil {
         this.policies = policies;
     }
 
-    // Constructor extendido que recibe la configuracion de dominios AD
-    // Se invoca desde el flujo Agama con: Call io.jans.casa.authn.UserAuthnUtil#new policies conf.ad_domains
-    public UserAuthnUtil(List<String> policies, Map<String, Object> adDomains) {
+    // Constructor extendido que recibe conf completo y extrae ad_domains
+    // Se invoca desde el flujo Agama con: Call io.jans.casa.authn.UserAuthnUtil#new policies conf
+    public UserAuthnUtil(List<String> policies, Map<String, Object> conf) {
         this.policies = policies;
-        if (adDomains != null) {
-            this.adDomains = adDomains;
+        if (conf != null) {
+            Object domains = conf.get("ad_domains");
+            if (domains instanceof Map) {
+                this.adDomains = (Map<String, Object>) domains;
+            }
         }
         logger.debug("UserAuthnUtil inicializado con {} dominios AD configurados", this.adDomains.size());
     }

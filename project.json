@@ -100,7 +100,8 @@
                 "connect_timeout": 5000
             }
         },
-        "code": {}
+        "code": {},
+        "io.jans.casa.authn.main.ad.fundacionrenal": {}
     },
     "name": "casa"
 }
